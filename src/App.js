@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import './App.css'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { setCurrentUser } from './redux/user/user.actions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = props => {
+	// destructure 
+	const {setCurrentUser, currentUser} = props 
+
+	let unsubscribeFromAuth = null 
+
+	// mounting hook
+	useEffect(() => {
+		unsubscribeFromAuth = auth.onAuthStateChanged(async useAuth => {
+			if(userAuth) {
+				const userRef = await createUserProfileDocument(userAuth)
+
+				userRef.onSnapshot(snapshot => {
+					setCurrentUser({
+						id: snapshot.id,
+						...snapshot.data()
+					})
+				})
+			}
+			setCurrentUser(userAuth)
+		})
+	}, [])
+
+	// unmounting hook
+	useEffect(() => {
+		return () => {
+			unsubscribeFromAuth()
+			console.log("unsubbed")
+		}
+	})
+
+	return (
+		<div className="app">
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+			</Switch>
+		</div>
+	)
 }
 
-export default App;
+const mapStateToProps = ({ user }) => ({
+	currentUser: user.currentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+	setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
