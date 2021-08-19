@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import './App.css'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions'
+
+import HomePage from './pages/homepage/homepage.component' 
 
 const App = props => {
 	// destructure 
@@ -13,7 +14,7 @@ const App = props => {
 
 	// mounting hook
 	useEffect(() => {
-		unsubscribeFromAuth = auth.onAuthStateChanged(async useAuth => {
+		unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 			if(userAuth) {
 				const userRef = await createUserProfileDocument(userAuth)
 
@@ -36,6 +37,7 @@ const App = props => {
 		}
 	})
 
+	console.log(currentUser)
 	return (
 		<div className="app">
 			<Switch>
