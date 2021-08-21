@@ -1,5 +1,8 @@
 import React, { useEffect }  from 'react'
 
+import './weather.styles.css'
+
+import Navbar from '../../components/navbar/navbar.component'
 import WeatherCollection from '../../components/weather-collection/weather-collection.component'
 
 const Weather = props => {
@@ -23,10 +26,11 @@ const Weather = props => {
     }, [])
 
     return (
-        <div>
+        <div className="weather">
+            <Navbar />
             <WeatherCollection />
-            {// navbar
-            // weatherColection
+                
+            {
             // footer
             }
         </div>
