@@ -5,9 +5,10 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions'
 
 import HomePage from './pages/homepage/homepage.component' 
+import Weather from './pages/weather/weather.component'
 
 const App = props => {
-	// destructure 
+
 	const {setCurrentUser, currentUser} = props 
 
 	let unsubscribeFromAuth = null 
@@ -35,13 +36,13 @@ const App = props => {
 			unsubscribeFromAuth()
 			console.log("unsubbed")
 		}
-	})
+	}, [])
 
 	console.log(currentUser)
 	return (
 		<div className="app">
 			<Switch>
-				<Route exact path="/" component={HomePage} />
+				<Route exact path="/" component={currentUser ? Weather : HomePage} />
 			</Switch>
 		</div>
 	)

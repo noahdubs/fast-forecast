@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { reduxForm } from 'redux-form'
 
 import { FormInput } from '../form-input/form-input.component'
 import CustomButton  from '../custom-button/custom-button.component'
@@ -23,10 +22,17 @@ const SignIn = () => {
         setInfo({ ...info, [ name ]: value })
     }
 
-    const handleSubmit =  event => {
+    const handleSubmit = async event => {
         event.preventDefault()
 
-
+        try {
+            await auth.signInWithEmailAndPassword(email, password)
+            setInfo({email: '', password: ''})
+        } catch(error) {
+            console.log(error)
+        }
+        console.log(info)
+        setInfo({email: '', password: ''})
     }   
 
     return (
@@ -38,7 +44,7 @@ const SignIn = () => {
                 <FormInput  
                     name="email"
                     type="email"
-                    handleChange={handleChange}
+                    onChange={handleChange}
                     value={email}
                     label="email"
                     required
@@ -46,7 +52,7 @@ const SignIn = () => {
                 <FormInput  
                     name="password"
                     type="password"
-                    handleChange={handleChange}
+                    onChange={handleChange}
                     value={password}
                     label="email"
                     required
@@ -58,9 +64,5 @@ const SignIn = () => {
         
     ) 
 }
-
-SignIn = reduxForm({
-    form: 'sign-in'
-})(SignIn)
 
 export default SignIn 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Field } from 'redux-form'
 
-export const FormInput = ({ label, formName, ...otherProps }) => (
+export const FormInput = ({ label, handleChange, ...otherProps }) => (
     <div className='group'>
-        <input className="form-input" {...otherProps} />
+        <input className="form-input" onChange={handleChange} {...otherProps} />
         {label ? (
             <label
                 className={`${
