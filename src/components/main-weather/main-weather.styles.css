@@ -1,3 +1,7 @@
 .main-weather {
-    border: 2px solid black;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
 }

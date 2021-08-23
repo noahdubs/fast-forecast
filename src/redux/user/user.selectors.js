@@ -2,8 +2,8 @@ import { createSelector } from "reselect"
 
 const selectCurrentUser = state = state.currentUser
 
-export const selectUserConvos = createSelector(
+export const selectUserSaved = createSelector(
     [selectCurrentUser],
-    currentUser => currentUser.conversations 
+    currentUser => currentUser.saved
 )
 

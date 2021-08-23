@@ -1,29 +1,14 @@
 import React, { useEffect }  from 'react'
+import { connect } from 'react-redux'
 
 import './weather.styles.css'
 
 import Navbar from '../../components/navbar/navbar.component'
 import WeatherCollection from '../../components/weather-collection/weather-collection.component'
+import { setCurrentWeather } from '../../redux/weather/weather.actions'
 
-const Weather = props => {
-    // const apiKey = 'b504e77f4158753c73047b49554c803f'
-     
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log(`Latitiude is ${position.coords.latitude}`)
-            console.log(`Longitude is ${position.coords.longitude}`)
-            console.log(typeof position.coords.longitude)
-
-            // const lat = position.coords.latitude.toString()
-            // const long = position.coords.longitude.toString()
-
-
-            // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}@lon=${long}@appid=${apiKey}`)
-            //     .then(res => res.json())
-            //     .then(weather => console.log(weather))
-            //     .catch(er => console.log(er))
-        })
-    }, [])
+const Weather = ({setCurrentWeather}) => {
+    
 
     return (
         <div className="weather">

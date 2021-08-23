@@ -1,8 +1,9 @@
 .weather-collection {
-    display: flex;
-    justify-content: center;
+    height: auto;
 }
 .weather-row {
-    width: 85%;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
     justify-content: space-between;
 }
