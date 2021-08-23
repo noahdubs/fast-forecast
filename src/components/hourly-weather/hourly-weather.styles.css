@@ -1,5 +1,25 @@
 .hourly-weather {
     border: 1px solid white;
     border-radius: 10px;
-    padding: 20px
+    padding: 20px;
 }
+.hourly-scroll {
+    overflow: auto;
+    display: flex;
+    white-space: nowrap;
+}
+.hour-of-weather {
+    padding: 5px 12px 5px 12px;
+    text-align: center;
+}
+
+#hourly-scroll::-webkit-scrollbar {
+    height: 20px;
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+
+#hourly-scroll::-webkit-scrollbar-thumb:horizontal {
+    background: blue;
+    border-radius: 10px;
+  }

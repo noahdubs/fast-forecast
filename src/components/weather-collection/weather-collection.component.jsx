@@ -4,6 +4,9 @@ import MainWeather from '../main-weather/main-weather.component'
 import SidePanel from '../side-panel/side-panel.component'
 import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
+import getTime from '../../scripts/get-time'
+import { weatherIds } from '../main-weather/weather-ids'
+
 import './weather-collection.styles.css'
 
 const WeatherCollection = props => {
@@ -30,6 +33,17 @@ const WeatherCollection = props => {
                     country: locationObject.country,
                     state: locationObject.state 
                 }
+                const dayHourly = weatherData.hourly.slice(0,24)
+                for(let i = 0; i < dayHourly.length; i++){
+                    const {hours, timeOfDay} = getTime(dayHourly[i].dt)
+                    console.log(hours, timeOfDay)
+                    dayHourly[i].time = {
+                        hours: hours, 
+                        timeOfDay: timeOfDay
+                    } 
+                }
+
+                weatherData.hourly = dayHourly
                 setWeather(weatherData)
             })
         })
@@ -43,12 +57,20 @@ const WeatherCollection = props => {
                 collectionClass: 'collection-nightime',
                 nightTime: true 
             }
+        } else {
+            return {
+                collectionClass: '',
+                nightTime: false
+            }
         }
     } 
     
 
     if(weather) {
-        const theme = getTheme()
+        const theme = getTheme() 
+        console.log(theme)
+        const sunrise = weather.current.sunrise 
+        const sunset = weather.current.sunset 
         return (
             <div className={`weather-collection ${theme.collectionClass}`}>
                 {theme.nightTime ? <div className="stars"></div> : null}
@@ -67,6 +89,9 @@ const WeatherCollection = props => {
                 <div className="row weather-row">
                     <HourlyWeather 
                         hourly={weather.hourly}
+                        nightTime={theme.nightTime}
+                        sunrise={sunrise}
+                        sunset={sunset}
                     />
                     <SidePanel
                         current={weather.current}

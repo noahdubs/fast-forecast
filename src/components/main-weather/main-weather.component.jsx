@@ -13,22 +13,15 @@ import snow from '../../assets/snow.png'
 import haze from '../../assets/haze.png'
 import tornado from '../../assets/tornado.png'
 
+import getTime from '../../scripts/get-time'
+
 import './main-weather.styles.css'
 
 
 const MainWeather = ({ location, current }) => {
-    const date = new Date(current.dt * 1000)
-    let hours = date.getHours()
-    let timeOfDay = 'am'
-    if (hours > 12) {
-        timeOfDay = 'pm'
-        hours = hours - 12
-    }
-    let minutes = date.getMinutes().toString()
-    if (minutes.length === 1) {
-        minutes = '0' + minutes
-    }
 
+    const {hours, minutes, timeOfDay} = getTime(current.dt)
+    console.log(hours)
     const currentWeatherId = current.weather[0].id
 
     const currentWeather = weatherIds[currentWeatherId]
