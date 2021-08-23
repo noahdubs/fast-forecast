@@ -1,8 +1,4 @@
-import React from 'react'
-
-import './side-panel.styles.css'
-
-const getCardinal= angle => {
+export const getCardinal= angle => {
     const degreePerDirection = 360 / 8
 
   
@@ -17,20 +13,3 @@ const getCardinal= angle => {
                 : (offsetAngle >= 6 * degreePerDirection && offsetAngle < 7 * degreePerDirection) ? "W"
                     : "NW"
 }
-
-const SidePanel = ({current, nightTime}) => {
-
-    return (
-        <div className={`col-md-4 side-panel${nightTime ? ' nightime-panel' : ''}`  } >
-            <div className="col-md-12">
-                <p>Feels like {Math.round(current.feels_like)} degrees</p>
-                <p>Humidity {current.humidity}%</p>
-                <p>Wind {Math.round(current.wind_speed)} mph</p>
-                <p>direction {getCardinal(current.wind_ang)}</p>
-            </div>
-        </div>
-    )
-
-}
-
-export default SidePanel 

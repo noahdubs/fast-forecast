@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
 
 import MainWeather from '../main-weather/main-weather.component'
-import SidePanel from '../side-panel/side-panel.component'
+import DailyWeather from '../daily-weather/daily-weather.component'
 import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
 import getTime from '../../scripts/get-time'
+
+import { getHourlyWeather } from '../../scripts/get-weather'
 
 import './weather-collection.styles.css'
 
@@ -26,24 +28,8 @@ const WeatherCollection = props => {
                 fetch(weatherUrl).then(res => res.json()),
                 fetch(locationUrl).then(res => res.json())
             ]).then(([weatherData, locationData]) => {
-                const locationObject = locationData[0]
-                weatherData.location = {
-                    name: locationObject.name,
-                    country: locationObject.country,
-                    state: locationObject.state 
-                }
-                const dayHourly = weatherData.hourly.slice(0,24)
-                for(let i = 0; i < dayHourly.length; i++){
-                    const {hours, timeOfDay} = getTime(dayHourly[i].dt)
-                    console.log(hours, timeOfDay)
-                    dayHourly[i].time = {
-                        hours: hours, 
-                        timeOfDay: timeOfDay
-                    } 
-                }
-
-                weatherData.hourly = dayHourly
-                setWeather(weatherData)
+                const getWeather = getHourlyWeather(weatherData, locationData)
+                setWeather(getWeather)
             })
         })
     }, [])
@@ -74,28 +60,34 @@ const WeatherCollection = props => {
             <div className={`weather-collection ${theme.collectionClass}`}>
                 {theme.nightTime ? <div className="stars"></div> : null}
                 <div className="row weather-row">
-                    <MainWeather 
+                    <div className="col-md-7">
+                        <MainWeather 
+                            location={weather.location}
+                            current={weather.current}
+                            nightTime={theme.nightTime}
+                        />
+                        <HourlyWeather 
+                            hourly={weather.hourly}
+                            nightTime={theme.nightTime}
+                            sunrise={sunrise}
+                            sunset={sunset}
+                        />
+                    </div>
+                    {/* <MainWeather 
                         location={weather.location}
                         current={weather.current}
                         nightTime={theme.nightTime}
-                    />
-                    <SidePanel 
-                        current={weather.current}
-                        nightTime={theme.nightTime}
-                    />
+                    /> */}
+                    <div className="col-md-4">
+                        <DailyWeather
+                            current={weather.current}
+                            nightTime={theme.nightTime}
+                        />
+                    </div>
+                    
                 </div>
                 <div className="spacing"></div>
                 <div className="row weather-row">
-                    <HourlyWeather 
-                        hourly={weather.hourly}
-                        nightTime={theme.nightTime}
-                        sunrise={sunrise}
-                        sunset={sunset}
-                    />
-                    <SidePanel
-                        current={weather.current}
-                        nightTime={theme.nightTime}
-                    />
                     {
                     // 'hourly forcast, sidePanel'}
                     }

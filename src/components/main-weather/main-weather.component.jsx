@@ -14,6 +14,7 @@ import haze from '../../assets/haze.png'
 import tornado from '../../assets/tornado.png'
 
 import getTime from '../../scripts/get-time'
+import { getCardinal } from '../../scripts/get-cardinal'
 
 import './main-weather.styles.css'
 
@@ -61,16 +62,21 @@ const MainWeather = ({ location, current }) => {
     console.log(current.weather[0])
 
     return (
-        <div className={`col-md-7 main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
-                <div className="location-temp">
+        <div className={`row main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
+                <div className="col-md-5 location-temp">
                     <h3>{location.name}, {location.state}</h3>
                     <p>As of {hours}:{minutes} {timeOfDay}</p>
                     <p className="main-degrees">{Math.round(current.temp)}°</p>
                     <h4>{currentWeather}</h4>
 
                 </div>
-                <div className="img-high-low">
+                <div className="col-md-3 img-info">
                     <img src={currentImg} />
+                    <div className="main-weather-info">
+                        <p className="m-w-p">Feels like {Math.round(current.feels_like)}°</p>  
+                        <p className="m-w-p">Humidity: {current.humidity}%</p>
+                        <p className="m-w-p">Wind: {Math.round(current.wind_speed)} mph {getCardinal(current.wind_ang)}</p>
+                    </div>
                 </div>
         </div>
     )

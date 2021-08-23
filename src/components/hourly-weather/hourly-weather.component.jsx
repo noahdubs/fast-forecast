@@ -60,7 +60,7 @@ const HourlyWeather = ({hourly, nightTime, sunrise, sunset}) => {
     }
 
     return (
-        <div className="col-md-7 hourly-weather">
+        <div className=" hourly-weather">
             <div className="hourly-scroll" id="hourly-scroll">
                 {hourly.map(hour => (
                     <div className="hour-of-weather" >
