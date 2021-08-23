@@ -5,7 +5,6 @@ import SidePanel from '../side-panel/side-panel.component'
 import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
 import getTime from '../../scripts/get-time'
-import { weatherIds } from '../main-weather/weather-ids'
 
 import './weather-collection.styles.css'
 

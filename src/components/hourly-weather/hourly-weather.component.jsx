@@ -12,6 +12,7 @@ import rain from '../../assets/rain.png'
 import snow from '../../assets/snow.png'
 import haze from '../../assets/haze.png'
 import tornado from '../../assets/tornado.png'
+import dayMoon from '../../assets/day-moon.png'
 
 const HourlyWeather = ({hourly, nightTime, sunrise, sunset}) => {
     console.log(hourly) 
@@ -20,8 +21,10 @@ const HourlyWeather = ({hourly, nightTime, sunrise, sunset}) => {
         let currentImg
         const hourlyWeatherId = weather[0].id 
         
-        if(dt >= sunset || dt < sunrise) {
-            currentImg = smallMoon
+        if((dt >= sunset || dt < sunrise) && !nightTime) {
+            currentImg = dayMoon
+        } else if(dt >= sunset || dt < sunrise) {
+            currentImg = smallMoon 
         } else {
             currentImg = smallSunny
         }

@@ -2,7 +2,7 @@ const getTime = timestamp => {
     const date = new Date(timestamp * 1000)
     let hours = date.getHours()
     let timeOfDay = 'am'
-    if (hours > 12) {
+    if (hours >= 12) {
         timeOfDay = 'pm'
         hours = hours - 12
     }
