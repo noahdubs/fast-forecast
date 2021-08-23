@@ -18,10 +18,10 @@ const getCardinal= angle => {
                     : "NW"
 }
 
-const SidePanel = ({current}) => {
+const SidePanel = ({current, nightTime}) => {
 
     return (
-        <div className="col-md-4 side-panel">
+        <div className={`col-md-4 side-panel${nightTime ? ' nightime-panel' : ''}`  } >
             <div className="col-md-12">
                 <p>Feels like {Math.round(current.feels_like)} degrees</p>
                 <p>Humidity {current.humidity}%</p>

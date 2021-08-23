@@ -1,7 +1,21 @@
 .main-weather {
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
     padding: 20px;
     border-radius: 10px;
+    width: 100%;
+}
+.main-container {
+    padding: 0;
+    margin: 0;
+}
+.night-weather {
+    border: 1px solid white;
+    /* background-color: #2a2a35; */
+}
+.day-weather {
+    border: 1px solid black;
+}
+.main-degrees {
+    font-size: 64px;
 }

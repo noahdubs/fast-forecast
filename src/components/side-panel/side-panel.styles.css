@@ -1,3 +1,8 @@
 .side-panel {
-    border: 2px solid black;
+    border: 1px solid black;
+    border-radius: 10px
+}
+.nightime-panel {
+    border: 1px solid white;
+    
 }

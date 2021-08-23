@@ -35,22 +35,42 @@ const WeatherCollection = props => {
         })
     }, [])
     console.log(weather)
+
+    const getTheme = () => {
+        const {current} = weather 
+        if(current.dt >= current.sunset || current.dt < current.sunrise) {
+            return {
+                collectionClass: 'collection-nightime',
+                nightTime: true 
+            }
+        }
+    } 
+    
+
     if(weather) {
+        const theme = getTheme()
         return (
-            <div className="weather-collection">
+            <div className={`weather-collection ${theme.collectionClass}`}>
+                {theme.nightTime ? <div className="stars"></div> : null}
                 <div className="row weather-row">
                     <MainWeather 
                         location={weather.location}
                         current={weather.current}
+                        nightTime={theme.nightTime}
                     />
                     <SidePanel 
                         current={weather.current}
+                        nightTime={theme.nightTime}
                     />
                 </div>
-                <div className="row">
-                    <HourlyWeather />
+                <div className="spacing"></div>
+                <div className="row weather-row">
+                    <HourlyWeather 
+                        hourly={weather.hourly}
+                    />
                     <SidePanel
                         current={weather.current}
+                        nightTime={theme.nightTime}
                     />
                     {
                     // 'hourly forcast, sidePanel'}

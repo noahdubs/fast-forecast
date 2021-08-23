@@ -1,9 +1,8 @@
 .custom-navbar {
-    height: 20%;
-    margin-bottom: 50px;
+    height: 100px;
 }
 .nav-custom {
-    height: 65%;
+    height: 100%;
     padding: 20px 10% 20px 10%;
     background-color: #163D72;
 }

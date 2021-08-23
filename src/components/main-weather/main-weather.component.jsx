@@ -17,8 +17,6 @@ import './main-weather.styles.css'
 
 
 const MainWeather = ({ location, current }) => {
-    console.log(current)
-
     const date = new Date(current.dt * 1000)
     let hours = date.getHours()
     let timeOfDay = 'am'
@@ -27,33 +25,28 @@ const MainWeather = ({ location, current }) => {
         hours = hours - 12
     }
     let minutes = date.getMinutes().toString()
-    console.log(typeof minutes)
     if (minutes.length === 1) {
-
         minutes = '0' + minutes
     }
 
-
     const currentWeatherId = current.weather[0].id
-    console.log(typeof currentWeatherId)
 
     const currentWeather = weatherIds[currentWeatherId]
 
-    console.log(current)
-
     let currentImg
+
     if(current.dt >= current.sunset || current.dt < current.sunrise){
         currentImg = moon 
-    } 
-    if (currentWeatherId === 801 || 802 || 803) {
+    } else {
+        currentImg = sunny
+    }
+    if (currentWeatherId === 801) {
+        console.log("how did i get here")
         currentImg = partlyCloudy
     } 
      if (currentWeatherId === 804) {
         currentImg = cloudy
     }
-     if (currentWeatherId === 800) {
-        currentImg = sunny
-    } 
      if (currentWeatherId > 209 && currentWeatherId < 222) {
         currentImg = thunderstorm
     } 
@@ -72,24 +65,20 @@ const MainWeather = ({ location, current }) => {
     if(currentWeatherId === 781) {
         currentImg = tornado 
     }
-    console.log(currentWeatherId)
+    console.log(current.weather[0])
 
     return (
-        <div className="col-md-8 main-weather">
-            <div className="me-2">
+        <div className={`col-md-7 main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
                 <div className="location-temp">
-                    <h1>{location.name}, {location.state}</h1>
+                    <h3>{location.name}, {location.state}</h3>
                     <p>As of {hours}:{minutes} {timeOfDay}</p>
-                    <p>{Math.round(current.temp)} Degrees</p>
-                    <p>{currentWeather}</p>
+                    <p className="main-degrees">{Math.round(current.temp)}°</p>
+                    <h4>{currentWeather}</h4>
 
                 </div>
                 <div className="img-high-low">
                     <img src={currentImg} />
-                    
                 </div>
-            </div>
-            
         </div>
     )
 }

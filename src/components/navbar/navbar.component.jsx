@@ -15,18 +15,6 @@ const Navbar = () => {
                 </div>
 
             </nav>
-            <nav className="navbar navbar-expand-md bottom-nav">
-                <div className="nav-current-weather">
-                    <p className="nav-weathers">Round Rock 83</p>
-                </div>
-                <div className="nav-saved-weather">
-                    <p className="nav-weathers">weather 84</p>
-                    <p className="nav-weathers">weather 84</p>
-                    <p className="nav-weathers">weather 84</p>
-                    <p className="nav-weathers">weather 84</p>
-                    <p className="nav-weathers">weather 84</p>
-                </div>
-            </nav>
         </div>
         
     )
