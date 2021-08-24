@@ -4,8 +4,6 @@ import MainWeather from '../main-weather/main-weather.component'
 import DailyWeather from '../daily-weather/daily-weather.component'
 import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
-import getTime from '../../scripts/get-time'
-
 import { getHourlyWeather } from '../../scripts/get-weather'
 
 import './weather-collection.styles.css'
@@ -29,6 +27,7 @@ const WeatherCollection = props => {
                 fetch(locationUrl).then(res => res.json())
             ]).then(([weatherData, locationData]) => {
                 const getWeather = getHourlyWeather(weatherData, locationData)
+                console.log(getWeather)
                 setWeather(getWeather)
             })
         })
@@ -56,6 +55,7 @@ const WeatherCollection = props => {
         console.log(theme)
         const sunrise = weather.current.sunrise 
         const sunset = weather.current.sunset 
+
         return (
             <div className={`weather-collection ${theme.collectionClass}`}>
                 {theme.nightTime ? <div className="stars"></div> : null}
@@ -71,32 +71,18 @@ const WeatherCollection = props => {
                             nightTime={theme.nightTime}
                             sunrise={sunrise}
                             sunset={sunset}
+                            dayOfWeekId={weather.hourly[0].time.dayOfWeekId}
                         />
                     </div>
-                    {/* <MainWeather 
-                        location={weather.location}
-                        current={weather.current}
-                        nightTime={theme.nightTime}
-                    /> */}
                     <div className="col-md-4">
                         <DailyWeather
-                            current={weather.current}
+                            daily={weather.daily.slice(1, 8)}
                             nightTime={theme.nightTime}
                         />
                     </div>
                     
                 </div>
                 <div className="spacing"></div>
-                <div className="row weather-row">
-                    {
-                    // 'hourly forcast, sidePanel'}
-                    }
-                </div>
-                <div className="row"> 
-                    {
-                    //'daily forecase, side panel'
-                    }
-                </div>
             </div>
         )
     } else {

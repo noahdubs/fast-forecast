@@ -1,9 +1,54 @@
-.side-panel {
+.daily-weather {
+    width: 100%;
     border: 1px solid black;
     border-radius: 10px;
-    margin-top: 25px;
 }
 .nightime-panel {
     border: 1px solid white;
     
+}
+.daily-row {
+    width: 100%;
+}
+
+.day-of-week {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 15px 0;
+}
+.day-imgs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.day-imgs p {
+    margin: 0;
+}
+.daily-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.day-rain-img {
+    width: 12px;
+    height: 12px;
+}
+.day-day {
+    justify-content: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5px;
+}
+.day-day p {
+    margin: 0;
+}
+.day-high-low {
+    justify-content: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+}
+.day-high-low p {
+    margin: 0;
 }

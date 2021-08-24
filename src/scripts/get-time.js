@@ -1,7 +1,7 @@
-const getTime = timestamp => {
+export const getDayOfWeek = timestamp => {
     const date = new Date(timestamp * 1000)
-    let hours = date.getHours()
-    let timeOfDay = 'am'
+    const day = date.getDay()
+
     const days = {
         0: 'Sunday',
         1: 'Monday',
@@ -11,7 +11,14 @@ const getTime = timestamp => {
         5: 'Friday',
         6: 'Saturday'
     }
-    const dayOfWeek = days[date.getDay()]
+    return days[day]
+}
+
+export const getTime = timestamp => {
+    const date = new Date(timestamp * 1000)
+    let hours = date.getHours()
+    let timeOfDay = 'am'
+    const dayOfWeek = getDayOfWeek(timestamp)
     if (hours >= 12) {
         timeOfDay = 'pm'
         hours = hours - 12
@@ -27,8 +34,7 @@ const getTime = timestamp => {
         hours: hours,
         timeOfDay: timeOfDay,
         minutes: minutes,
-        dayOfWeek: dayOfWeek
+        dayOfWeek: dayOfWeek,
+        dayOfWeekId: date.getDay()
     }
 }
-
-export default getTime
