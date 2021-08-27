@@ -29,6 +29,10 @@
     background:url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
     z-index:0;
 }
+
+.collection-daytime {
+    background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%);
+}
 .spacing {
     margin-top: 40px;
 }

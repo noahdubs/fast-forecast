@@ -1,11 +1,13 @@
 .daily-weather {
     width: 100%;
-    border: 1px solid black;
     border-radius: 10px;
+    padding: 8px 5px 8px 5px;
 }
-.nightime-panel {
-    border: 1px solid white;
-    
+.daily-nightime {
+    border: 1px solid white;   
+}
+.daily-daytime {
+    background-color: white;
 }
 .daily-row {
     width: 100%;
@@ -15,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0 15px 0;
+    margin: 20px 0 20px 0;
 }
 .day-imgs{
     display: flex;

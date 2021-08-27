@@ -4,6 +4,8 @@
     padding: 20px 20px 10px 20px;
     border-radius: 10px;
     width: 100%;
+    margin: 0;
+    margin-bottom: 60px;
 }
 .main-container {
     padding: 0;
@@ -13,7 +15,7 @@
     border: 1px solid white;
 }
 .day-weather {
-    border: 1px solid black;
+    background-color: white;
 }
 .main-degrees {
     font-size: 64px;

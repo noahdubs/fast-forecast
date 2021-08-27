@@ -43,6 +43,7 @@ const App = props => {
 		<div className="app">
 			<Switch>
 				<Route exact path="/" component={currentUser ? Weather : HomePage} />
+				<Route exact path="/weather/:hexLat/:hexLon" component={Weather} /> 
 			</Switch>
 		</div>
 	)

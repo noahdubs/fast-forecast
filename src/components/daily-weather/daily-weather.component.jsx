@@ -13,7 +13,7 @@ const DailyWeather = ({daily, nightTime}) => {
     const dayOfWeek = getDayOfWeek(date)
     
     return (
-        <div className={ `daily-weather${nightTime ? ' nightime-panel' : ''}`  } >
+        <div className={ `daily-weather${nightTime ? ' daily-nightime' : ' daily-daytime'}`} >
             <div className="col-md-12">
                 {daily.map(day => (
                     <div className="day-of-week">

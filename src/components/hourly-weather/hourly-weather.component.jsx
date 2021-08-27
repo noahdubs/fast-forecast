@@ -8,7 +8,7 @@ const HourlyWeather = ({hourly, nightTime, sunrise, sunset, dayOfWeekId}) => {
     console.log(hourly) 
 
     return (
-        <div className=" hourly-weather">
+        <div className={`hourly-weather ${nightTime ? 'hourly-night' : 'hourly-day'}`} >
             <div className="hourly-scroll" id="hourly-scroll">
                 {hourly.map(hour => (
                     <div className="hour-of-weather" key={hour.dt} >

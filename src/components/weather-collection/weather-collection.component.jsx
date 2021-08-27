@@ -43,7 +43,7 @@ const WeatherCollection = props => {
             }
         } else {
             return {
-                collectionClass: '',
+                collectionClass: 'collection-daytime',
                 nightTime: false
             }
         }

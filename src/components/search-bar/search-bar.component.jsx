@@ -2,9 +2,14 @@ import React, {useState} from 'react'
 import './search-bar.styles.css'
 
 import { FormInput } from '../form-input/form-input.component'
+import { Redirect } from 'react-router-dom'
+import { loopOverText, getState, getCountry, getCity } from '../../scripts/loop-over-text'
 
 const SearchBar = props => {
     const [search, setSearch] = useState({text: ''})
+    const [hexs, setHexs] = useState(false)
+
+    const apiKey = 'b504e77f4158753c73047b49554c803f'
 
     const handleChange = event => {
         const { name, value } = event.target 
@@ -14,8 +19,49 @@ const SearchBar = props => {
 
     const handleSubmit = event => {
         event.preventDefault()
+
+        const {text} = search
+
+        let words = loopOverText(text.toLowerCase())
+        const {stateCode, stateString} = getState(words)
+
+
+        let countryCode = 'US'
+        let countryString
+
+        if(!stateCode){
+            const country = getCountry(words)
+            if(country.countryCode){
+                countryCode = country.countryCode
+                countryString = country.countryString 
+                words = words.filter(e => e!== countryString)
+            }
+            
+        } else {
+            words = words.filter(e => e !== stateString)
+        }
+        
+
+        const cityName = getCity(words)
+
+        console.log(cityName, stateCode, countryCode)
+
+        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=1&appid=${apiKey}`)
+            .then(res => res.json())
+            .then(coords => {
+                console.log(coords)
+                const hexLat = coords[0].lat.toString(16)
+                const hexLon = coords[0].lon.toString(16)
+                setHexs({
+                    hexLat: hexLat,
+                    hexLon: hexLon
+                })
+            })
+            .catch(err => console.log("error", err))
     }
 
+
+    let submitted 
     return (
         <form className="search-form form-inline" onSubmit={handleSubmit} >
             <div className="form-group">
@@ -31,6 +77,7 @@ const SearchBar = props => {
                     <i className="fas fa-search"></i>
                 </button>
             </div>
+            {hexs ? <Redirect to={`/weather/${hexs.hexLat}/${hexs.hexLon}`} /> : null}
         </form>
     )
     
