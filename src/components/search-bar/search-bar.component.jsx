@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import './search-bar.styles.css'
 
 import { FormInput } from '../form-input/form-input.component'
-import { Redirect } from 'react-router-dom'
 import { loopOverText, getState, getCountry, getCity } from '../../scripts/loop-over-text'
 
 const SearchBar = props => {
@@ -50,21 +49,21 @@ const SearchBar = props => {
             .then(res => res.json())
             .then(coords => {
                 console.log(coords)
-                const hexLat = coords[0].lat.toString(16)
-                const hexLon = coords[0].lon.toString(16)
+                const hexLat = coords[0].lat
+                const hexLon = coords[0].lon
                 setHexs({
                     hexLat: hexLat,
                     hexLon: hexLon
                 })
+
+                window.location.href = `/weather/${hexLat}/${hexLon}`
             })
             .catch(err => console.log("error", err))
     }
 
-
-    let submitted 
     return (
-        <form className="search-form form-inline" onSubmit={handleSubmit} >
-            <div className="form-group">
+        <form className={`search-form form-inline ${props.for}`} onSubmit={handleSubmit} >
+            <div className={ `form-group ${props.for}`}>
                 <FormInput 
                     name="text"
                     type="text"
@@ -77,7 +76,6 @@ const SearchBar = props => {
                     <i className="fas fa-search"></i>
                 </button>
             </div>
-            {hexs ? <Redirect to={`/weather/${hexs.hexLat}/${hexs.hexLon}`} /> : null}
         </form>
     )
     

@@ -1,0 +1,17 @@
+.homepage-search {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.homepage-search-bar {
+    width: 90%;
+    margin-left: 5%;
+}
+.homepage-title {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+}

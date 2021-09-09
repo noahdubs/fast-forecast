@@ -49,7 +49,9 @@ const SignUp = () => {
     }
 
     return (
-        <div className="sign-up">
+        <div className="col-md-6 sign-up">
+            <h2 className='title'>I do not have a account</h2>
+            <span>Sign up with your email and password</span>
             <form className="sign-up-form" onSubmit={handleSubmit}>
                 <FormInput 
                     type='email'
@@ -57,6 +59,8 @@ const SignUp = () => {
                     value={info.email}
                     onChange={handleChange}
                     label='Email'
+                    type="login-form-input"
+                    placeholder="Email"
                     required
                 />
                  <FormInput 
@@ -65,6 +69,8 @@ const SignUp = () => {
                     value={info.displayName}
                     onChange={handleChange}
                     label='Name'
+                    type="login-form-input"
+                    placeholder="Display Name"
                     required
                 />
                  <FormInput 
@@ -73,6 +79,8 @@ const SignUp = () => {
                     value={info.password}
                     onChange={handleChange}
                     label='Password'
+                    type="login-form-input"
+                    placeholder="Password"
                     required
                 />
                  <FormInput 
@@ -81,6 +89,8 @@ const SignUp = () => {
                     value={info.confirmPassword}
                     onChange={handleChange}
                     label='Confirm Password'
+                    type="login-form-input"
+                    placeholder="Confirm Password"
                     required
                 />
                 <CustomButton type="submit">Sign Up</CustomButton>

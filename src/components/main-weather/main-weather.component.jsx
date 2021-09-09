@@ -22,7 +22,7 @@ const MainWeather = ({ location, current }) => {
     return (
         <div className={`row main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
                 <div className="col-md-5 location-temp">
-                    <h3>{location.name}, {location.state}</h3>
+                    <h3>{location.name}, {location.state ? location.state : location.country}</h3>
                     <p>As of {hours}:{minutes} {timeOfDay}</p>
                     <p className="main-degrees">{Math.round(current.temp)}°</p>
                     <h4>{currentWeather}</h4>

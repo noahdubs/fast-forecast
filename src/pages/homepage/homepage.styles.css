@@ -1,0 +1,9 @@
+.homepage {
+    height: 100%;
+    overflow: hidden;
+    /* background-image: url('https://cdn.pixabay.com/photo/2014/09/17/18/59/clouds-449822_960_720.jpg'); */
+    /* background-image: url('../../assets/forest-waterfall.jpeg'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

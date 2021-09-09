@@ -1,23 +1,25 @@
-import React, { useState }  from 'react'
+import React from 'react'
 
-import './weather.styles.css'
+import './weather-search.styles.css'
 
 import Navbar from '../../components/navbar/navbar.component'
 import WeatherCollection from '../../components/weather-collection/weather-collection.component'
 import Footer from '../../components/footer/footer.component'
 
-const Weather = ({lat, lon}) => {   
-    console.log(lat, lon) 
+
+const WeatherSearch = props => {
+    const {hexLat, hexLon} = props.match.params 
+
     return (
-        <div className="weather">
+        <div className="weather-search">
             <Navbar />
             <WeatherCollection 
-                lat={lat}
-                lon={lon}
+                lat={hexLat}
+                lon={hexLon}
             />
             <Footer />
         </div>
     )
 }
 
-export default Weather 
+export default WeatherSearch 

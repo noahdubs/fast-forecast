@@ -8,29 +8,25 @@ import { getHourlyWeather } from '../../scripts/get-weather'
 
 import './weather-collection.styles.css'
 
-const WeatherCollection = props => {
+const WeatherCollection = ({lat, lon}) => {
     const [weather, setWeather] = useState()
 
     const apiKey = 'b504e77f4158753c73047b49554c803f'
     const units = 'imperial'
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude.toString()
-            const long = position.coords.longitude.toString()
-
-            const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=${units}&exclude=minutely&appid=${apiKey}`
-            const locationUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`
+            const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=minutely&appid=${apiKey}`
+            const locationUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`
 
             Promise.all([
                 fetch(weatherUrl).then(res => res.json()),
                 fetch(locationUrl).then(res => res.json())
             ]).then(([weatherData, locationData]) => {
+                console.log(locationData)
                 const getWeather = getHourlyWeather(weatherData, locationData)
                 console.log(getWeather)
                 setWeather(getWeather)
             })
-        })
     }, [])
     console.log(weather)
 

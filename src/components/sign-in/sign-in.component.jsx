@@ -8,13 +8,12 @@ import { signInWithGoogle, auth } from '../../firebase/firebase.utils'
 import './sign-in.styles.css'
 
 const SignIn = () => {
-    
+
     const [ info, setInfo ] = useState({
         email: '',
         password: ''
     })
 
-    const { email, password } = info
 
     const handleChange = event => {
         const { name, value } = event.target 
@@ -23,6 +22,7 @@ const SignIn = () => {
     }
 
     const handleSubmit = async event => {
+        const { email, password } = info
         event.preventDefault()
 
         try {
@@ -36,7 +36,7 @@ const SignIn = () => {
     }   
 
     return (
-        <div className="sign-in">
+        <div className="col-md-6 sign-in">
             <h2>I already have an account</h2>
             <span>Sign in with your email and password</span>
 
@@ -45,16 +45,20 @@ const SignIn = () => {
                     name="email"
                     type="email"
                     onChange={handleChange}
-                    value={email}
+                    value={info.email}
                     label="email"
+                    type="login-form-input"
+                    placeholder="Email"
                     required
                 />  
                 <FormInput  
                     name="password"
                     type="password"
                     onChange={handleChange}
-                    value={password}
+                    value={info.password}
                     label="email"
+                    type="login-form-input"
+                    placeholder="Password"
                     required
                 />
                 <CustomButton type="submit"> Sign in </CustomButton>
