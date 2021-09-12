@@ -3,6 +3,6 @@
     height: 100px;
     width: 100%;
     color: white;
-    position: fixed;
+    position: absolute;
     bottom: 0;
 }
