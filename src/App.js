@@ -54,33 +54,33 @@ const App = props => {
 
 	console.log(coords)
 
-	return (
-		<div className="app">
-			<Switch>
-				<Route exact path="/" component={HomePage} />
-				<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
-				<Route exact path='/signin' component={SignInAndSignUp} />
-			</Switch>
-		</div>
-		
-	)
-
 	// return (
 	// 	<div className="app">
-	//  			<Switch>
-	//  				<Route exact path="/" render={props => coords ? 
-	// 				 	(<Weather {...props} lat={coords.lat} lon={coords.lon} />)
-	// 					: (<HomePage />)} 
-	// 				/>
-
-
-	//  				<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
-
-
-	//               	<Route exact path='/signin' render={() => currentUser ? (<Redirect to="/"/>) : (<SignInAndSignUp />)} />
-	//  			</Switch>
-	//  		</div>
+	// 		<Switch>
+	// 			<Route exact path="/" component={HomePage} />
+	// 			<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
+	// 			<Route exact path='/signin' component={SignInAndSignUp} />
+	// 		</Switch>
+	// 	</div>
+		
 	// )
+
+	return (
+		<div className="app">
+	 			<Switch>
+	 				<Route exact path="/" render={props => coords ? 
+					 	(<Weather {...props} lat={coords.lat} lon={coords.lon} />)
+						: (<HomePage />)} 
+					/>
+
+
+	 				<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
+
+
+	              	<Route exact path='/signin' render={() => currentUser ? (<Redirect to="/"/>) : (<SignInAndSignUp />)} />
+	 			</Switch>
+	 		</div>
+	)
 	
 }
 

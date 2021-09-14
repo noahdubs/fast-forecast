@@ -18,7 +18,6 @@ const MainWeather = ({ location, current }) => {
     current.currentWeatherId = currentWeatherId 
     const currentWeather = weatherIds[currentWeatherId]
 
-
     return (
         <div className={`row main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
                 <div className="col-md-5 location-temp">
@@ -39,5 +38,6 @@ const MainWeather = ({ location, current }) => {
         </div>
     )
 }
+
 
 export default MainWeather

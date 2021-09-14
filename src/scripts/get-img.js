@@ -15,6 +15,7 @@ import moon from '../assets/moon.png'
 import smallMoon from '../assets/small-moon.png'
 
 import thunderstorm from '../assets/thunderstorm.png'
+import smallThunderstorm from '../assets/small-thunderstorm.png'
 
 import thunderstormandrain from '../assets/thunderstormandrain.png'
 
@@ -22,41 +23,45 @@ import rain from '../assets/rain.png'
 import smallRain from '../assets/small-rain.png'
 
 import snow from '../assets/snow.png'
+import smallSnow from '../assets/small-snow.png'
 
 import haze from '../assets/haze.png'
+import smallHaze from '../assets/small-haze.png'
 
 import tornado from '../assets/tornado.png'
+import smallTornado from '../assets/small-tornado.png'
 
 import dayMoon from '../assets/day-moon.png'
 
 export const getDailyImg = weatherId => {
+    console.log(weatherId)
     let currentImg
     if(weatherId === 800) {
         currentImg = smallSunny
     }
-    if (weatherId > 800 && weatherId < 803) {
+    if (weatherId > 800 && weatherId <= 803) {
         currentImg = smallPartlyCloudy
     } 
      if (weatherId > 803 && weatherId < 804) {
         currentImg = smallCloudy
     }
     if (weatherId > 209 && weatherId < 222) {
-        currentImg = thunderstorm
+        currentImg = smallThunderstorm
     } 
     if (weatherId > 199 && weatherId < 233) {
-        currentImg = thunderstormandrain
+        currentImg = smallThunderstorm
     }
     if (weatherId > 299 && weatherId < 532 ) {
         currentImg = smallRain 
     }
     if( weatherId > 599 && weatherId < 622) {
-        currentImg = snow 
+        currentImg = smallSnow 
     } 
     if(weatherId > 700 && weatherId < 772) {
-        currentImg = haze 
+        currentImg = smallHaze 
     }
     if(weatherId === 781) {
-        currentImg = tornado 
+        currentImg = smallTornado 
     }
     return (
         <img className="daily-img" src={currentImg} />
@@ -86,25 +91,25 @@ export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId) => {
         currentImg = smallPartlyCloudy
     } 
      if (hourlyWeatherId > 803 && hourlyWeatherId < 804) {
-        currentImg = cloudy
+        currentImg = smallCloudy
     }
     if (hourlyWeatherId > 209 && hourlyWeatherId < 222) {
-        currentImg = thunderstorm
+        currentImg = smallThunderstorm
     } 
     if (hourlyWeatherId > 199 && hourlyWeatherId < 233) {
-        currentImg = thunderstormandrain
+        currentImg = smallThunderstorm
     }
         if (hourlyWeatherId > 299 && hourlyWeatherId < 532 ) {
-        currentImg = rain 
+        currentImg = smallRain 
     }
     if( hourlyWeatherId > 599 && hourlyWeatherId < 622) {
-        currentImg = snow 
+        currentImg = smallSnow 
     } 
     if(hourlyWeatherId > 700 && hourlyWeatherId < 772) {
-        currentImg = haze 
+        currentImg = smallHaze 
     }
     if(hourlyWeatherId === 781) {
-        currentImg = tornado 
+        currentImg = smallTornado 
     }
 
     return (
