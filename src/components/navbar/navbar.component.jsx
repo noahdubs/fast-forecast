@@ -8,8 +8,8 @@ import './navbar.styles.css'
 
 const Navbar = ({page, currentUser}) => {
     return (
-        <div className={`custom-navbar`}>
-            <nav className={`navbar navbar-expand-md nav-custom ${page}`}>
+        <div className={`custom-navbar ${page ? 'home-navbar' : 'weather-navbar'}`}>
+            <nav className={`navbar navbar-expand-md nav-custom`}>
                 <div className="nav-logo nav-half">
                     logo
                 </div>
@@ -17,10 +17,8 @@ const Navbar = ({page, currentUser}) => {
                     {page ? null 
                     : <SearchBar for="weather-nav" />}
                     {currentUser ? 
-                         <div className='option' onClick={() => auth.signOut()}>
-                            SIGN OUT
-                        </div>
-                        : <Link to="/signin">Sign In</Link>
+                        <i title="Sign Out" onClick={() => auth.signOut()} className="fas fa-sign-out-alt sign-in-out-icon"></i>
+                        : <Link to="/signin"><i title="Sign In" className="fas fa-sign-in-alt sign-in-out-icon"></i></Link>
                     }
                 </div>
             </nav>

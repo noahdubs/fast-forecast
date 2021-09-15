@@ -70,6 +70,7 @@ const SearchBar = props => {
                     onChange={handleChange}
                     value={search.text}
                     type={props.for}
+                    placeholder={'Search City'}
                     required
                 />
                 <button className="search-button">

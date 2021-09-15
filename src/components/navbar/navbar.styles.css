@@ -1,10 +1,16 @@
 .custom-navbar {
     height: 100px;
 }
+.weather-navbar {
+    background-color: #2a2a72;
+    background-image: linear-gradient(2deg, #2a2a72 0%, #009ffd 74%);
+}
+.home-navbar {
+    background-color: transparent;
+}
 .nav-custom {
     height: 100%;
     padding: 20px 10% 20px 10%;
-    background-color: #163D72;
     width: 100%;
     overflow: hidden;
 }
@@ -15,29 +21,12 @@
     height: 100%;
     align-items: center;
 }
-
 .nav-info {
     justify-content: flex-end;   
 }
-
-.bottom-nav {
-    background-color: #3880E2;
-    height: 35%;
-    padding: 0 0 0 5%;
+.sign-in-out-icon {
+    margin-left: 20px;
+    color:white;
+    font-size: 25px;
+    cursor: pointer;
 }
-.nav-current-weather {
-    padding-right: 12px;
-    border-right: 1px solid white;
-    margin-right: 12px;
-}
-.nav-saved-weather {
-    display: flex;
-    justify-content: space-around;
-}
-.nav-weathers {
-    margin: 0;
-}
-.homepage-nav {
-    background-color: transparent;
-}
-

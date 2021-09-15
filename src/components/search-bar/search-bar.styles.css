@@ -4,4 +4,6 @@
 
 .search-button {
     margin-left: -32px;
+    border: none;
+    background-color: transparent;
 }

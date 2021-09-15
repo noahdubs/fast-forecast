@@ -1,5 +1,5 @@
 .weather-collection {
-    padding: 50px 0 50px 0;
+    padding: 50px 0 0 0;
     height: 100%;
 }
 .weather-row {
@@ -11,6 +11,7 @@
 .collection-nightime {
     position: absolute;
     width: 100%;
+    height: 100%;
     background-color: #4B79A1;
     background: -webkit-linear-gradient(to top, #283E51, #0A2342);
     background: linear-gradient(to top, #283E51, #0A2342);
@@ -24,14 +25,15 @@
     right:0;
     bottom:0;
     width:100%;
-    height:100%;
+    height: auto;
     display:block;
     background:url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
     z-index:0;
 }
 
 .collection-daytime {
-    background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%);
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
 }
 .spacing {
     margin-top: 40px;
