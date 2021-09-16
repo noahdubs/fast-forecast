@@ -50,7 +50,29 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: 5px;
+    text-align: right;
 }
 .day-high-low p {
     margin: 0;
 }
+@media screen and (max-width: 1200px) {
+    .day-of-week {
+        padding: 0;
+    }
+    .daily-col {
+        padding: 0;
+    }
+}
+@media screen and (max-width: 992px) {
+    .day-of-week {
+        margin: 10px 0 20px 0;
+    }
+   
+}
+@media screen and (max-width: 401px) {
+    .day-of-week p {
+        font-size: 14px;
+    }
+}
+
+

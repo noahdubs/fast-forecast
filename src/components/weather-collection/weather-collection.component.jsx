@@ -56,7 +56,7 @@ const WeatherCollection = ({lat, lon}) => {
             <div className={`weather-collection ${theme.collectionClass}`}>
                 {theme.nightTime ? <div className="stars"></div> : null}
                 <div className="row weather-row">
-                    <div className="col-md-7">
+                    <div className="col-lg-7 main-col">
                         <MainWeather 
                             location={weather.location}
                             current={weather.current}
@@ -70,7 +70,7 @@ const WeatherCollection = ({lat, lon}) => {
                             dayOfWeekId={weather.hourly[0].time.dayOfWeekId}
                         />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-lg-4 daily-col">
                         <DailyWeather
                             daily={weather.daily.slice(1, 8)}
                             nightTime={theme.nightTime}

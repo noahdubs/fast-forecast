@@ -6,15 +6,18 @@ import SearchBar from '../search-bar/search-bar.component'
 
 import './navbar.styles.css'
 
+import logo from '../../assets/logo0.png'
+
 const Navbar = ({page, currentUser}) => {
+
     return (
         <div className={`custom-navbar ${page ? 'home-navbar' : 'weather-navbar'}`}>
             <nav className={`navbar navbar-expand-md nav-custom`}>
                 <div className="nav-logo nav-half">
-                    logo
+                    <img id="logo" src={logo} />
                 </div>
                 <div className="nav-info nav-half">
-                    {page ? null 
+                    {page ? null
                     : <SearchBar for="weather-nav" />}
                     {currentUser ? 
                         <i title="Sign Out" onClick={() => auth.signOut()} className="fas fa-sign-out-alt sign-in-out-icon"></i>

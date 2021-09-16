@@ -36,7 +36,7 @@ const SignIn = () => {
     }   
 
     return (
-        <div className="col-md-6 sign-in">
+        <div className="col-lg-6 sign-in">
             <h2>I already have an account</h2>
             <span>Sign in with your email and password</span>
 

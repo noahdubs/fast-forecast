@@ -9,7 +9,7 @@ import raindrop from '../../assets/raindrop.png'
 
 const DailyWeather = ({daily, nightTime}) => (
     <div className={ `daily-weather${nightTime ? ' daily-nightime' : ' daily-daytime'}`} >
-        <div className="col-md-12">
+        <div className="col-md-12 daily-col">
             {daily.map(day => (
                 <div className="day-of-week">
                     <div className="col-3 day-day">

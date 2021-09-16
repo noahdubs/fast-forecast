@@ -1,6 +1,6 @@
 .weather-collection {
-    padding: 50px 0 0 0;
-    height: 100%;
+    padding: 50px 0 50px 0;
+    height: 90%;
 }
 .weather-row {
     width: 85%;
@@ -37,4 +37,33 @@
 }
 .spacing {
     margin-top: 40px;
+}
+
+
+/* 992px to 1328px */
+@media screen and (max-width: 400px){
+    .weather-row p {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .main-col {
+        margin-bottom: 30px;
+        padding: 0;
+    }
+    .weather-collection {
+        padding: 40px 0 30px 0;
+    }
+}
+@media screen and (max-width: 1328px) {
+    .weather-row {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-height: 760px) {
+    .weather-collection {
+        height: auto;
+    }   
 }

@@ -30,3 +30,44 @@
 .img-info {
     justify-content: flex-end;
 }
+
+
+@media screen and (max-width: 400px){
+    .main-degrees {
+        font-size: 48px !important;
+    }
+    .main-weather {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .m-w-p {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .m-w-p {
+        font-size: 11px;    
+    }
+}
+@media screen and (max-width: 576px) {
+    .m-w-p {
+        font-size: 14px;    
+    }
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+    .main-weather {
+        margin-bottom: 30px;
+    }
+    .main-weather {
+        padding: 10px;
+    }
+    .location-temp {
+        padding: 0;
+    }
+}
