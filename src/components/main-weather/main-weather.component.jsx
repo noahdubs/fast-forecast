@@ -28,11 +28,15 @@ const MainWeather = ({ location, current }) => {
 
                 </div>
                 <div className="col-sm-3 img-info">
-                    <img src={getMainImg(current)} />
+                    <div className="img-div">
+                        <img src={getMainImg(current)} />
+                    </div>
                     <div className="main-weather-info">
-                        <p className="m-w-p">Feels like {Math.round(current.feels_like)}°</p>  
-                        <p className="m-w-p">Humidity: {current.humidity}%</p>
-                        <p className="m-w-p">Wind: {Math.round(current.wind_speed)} mph {getCardinal(current.wind_ang)}</p>
+                        <div>
+                            <p className="m-w-p">Feels like {Math.round(current.feels_like)}°</p>  
+                            <p className="m-w-p">Humidity: {current.humidity}%</p>
+                            <p className="m-w-p">Wind: {Math.round(current.wind_speed)} mph {getCardinal(current.wind_ang)}</p>
+                        </div>
                     </div>
                 </div>
         </div>

@@ -1,6 +1,13 @@
 .sign-up {
     display: flex;
     flex-direction: column;
-    width: 380px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .sign-up {
+        width: 95%;
+        margin: 25px 0 80px 1.5%;
+    }
 }
 

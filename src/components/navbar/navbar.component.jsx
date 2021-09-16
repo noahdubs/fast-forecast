@@ -6,18 +6,22 @@ import SearchBar from '../search-bar/search-bar.component'
 
 import './navbar.styles.css'
 
-import logo from '../../assets/logo0.png'
+import logo1 from '../../assets/logo1.png'
+import logo2 from '../../assets/logo2.png'
+import mobileLogo from '../../assets/mobile-logo.png'
 
 const Navbar = ({page, currentUser}) => {
 
     return (
         <div className={`custom-navbar ${page ? 'home-navbar' : 'weather-navbar'}`}>
-            <nav className={`navbar navbar-expand-md nav-custom`}>
+            <nav className={`navbar nav-custom mobile-nav`}>
                 <div className="nav-logo nav-half">
-                    <img id="logo" src={logo} />
+                    <img id="logo1" src={logo1} />
+                    <img id="logo2" src={logo2} />
+                    <img id="mobile-logo" src={mobileLogo} />
                 </div>
                 <div className="nav-info nav-half">
-                    {page ? null
+                    {page ? <span></span>
                     : <SearchBar for="weather-nav" />}
                     {currentUser ? 
                         <i title="Sign Out" onClick={() => auth.signOut()} className="fas fa-sign-out-alt sign-in-out-icon"></i>

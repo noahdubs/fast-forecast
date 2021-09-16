@@ -2,17 +2,14 @@
     min-width: 165px;
     width: auto;
     height: 50px;
-    letter-spacing: 0.5px;
-    line-height: 50px;
     padding: 0 35px 0 35px;
     font-size: 15px;
     background-color: black;
     color: white;
-    text-transform: uppercase;
-    font-family: 'Open Sans Condensed';
-    font-weight: bolder;
     border: none;
     cursor: pointer;
+    margin-right: 5px;
+    border-radius: 10px;
 }
 
 .custom-button:hover {
@@ -29,4 +26,19 @@
 .google-sign-in:hover {
     background-color: #357ae8;
         border: none;
+}
+
+@media screen and (max-width: 940px) {
+    .custom-button {
+        min-width: 100px;
+        width: auto;
+        padding: 0 10px 0 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .custom-button {
+        font-size: 12px;
+        height: 40px;
+        margin: 5px 5px 10px 0;
+    }
 }

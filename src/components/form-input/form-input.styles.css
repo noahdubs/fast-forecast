@@ -23,3 +23,8 @@
     margin: 10px 0 10px 0;
     width: 100%;
 }
+ @media screen and (max-width: 578px) {
+     .weather-nav {
+        width: 100%;
+    }
+ }

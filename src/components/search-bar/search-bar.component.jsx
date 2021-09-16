@@ -62,11 +62,11 @@ const SearchBar = props => {
     }
 
     return (
-        <form className={`search-form form-inline ${props.for}`} onSubmit={handleSubmit} >
-            <div className={ `form-group ${props.for}`}>
+        <form className={`search-form form-inline ${props.for === 'weather-nav' ? 'weather-form' : 'homepage-search-form'}`} onSubmit={handleSubmit} >
+            <div className={ `form-group `}>
                 <FormInput 
                     name="text"
-                    type="text"
+                    type="search"
                     onChange={handleChange}
                     value={search.text}
                     type={props.for}

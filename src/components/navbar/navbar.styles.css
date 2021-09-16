@@ -33,3 +33,29 @@
     height: 100%;
     align-items: center;
 }
+#mobile-logo {
+    display: none;
+}
+@media screen and (max-width: 720px) {
+    .mobile-nav {
+        padding: 20px 5% 20px 5%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #logo1, #logo2 {
+        display: none;
+    }
+    #mobile-logo {
+        display: inline;
+    }
+    .nav-info {
+        justify-content: space-between;
+    }
+    .nav-logo {
+        width: 30%;
+    }
+    .nav-info {
+        width: 70%;
+    }
+}

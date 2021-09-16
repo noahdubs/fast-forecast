@@ -71,3 +71,19 @@
         padding: 0;
     }
 }
+
+@media screen and (max-width: 575px){
+    .location-temp {
+        text-align: center;
+    } 
+    .img-div {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }  
+    .main-weather-info {
+       margin-top: 10%;
+       display: flex;
+       justify-content: flex-end;
+    }
+}

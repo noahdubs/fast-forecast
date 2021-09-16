@@ -7,10 +7,15 @@
     bottom: 0;
     overflow: hidden;
     padding:0 10% 0 10%;
-    position: fixed;
     display: flex;
     justify-content: space-between;
 }
 .footer p {
     margin: 0;
+}
+
+@media screen and (max-width: 470px){
+    .footer p {
+        font-size: 12px;
+    }
 }

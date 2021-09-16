@@ -16,3 +16,14 @@
     margin-bottom: 20px;
     font-weight: 600;
 }
+
+@media screen and (max-width: 588px) {
+    .homepage-title {
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .homepage-title {
+        font-size: 28px;
+    }
+}

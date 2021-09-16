@@ -7,3 +7,21 @@
     border: none;
     background-color: transparent;
 }
+
+
+.homepage-search-form {
+    justify-content: center;
+}
+.homepage-search-form div {
+    width: 80%;
+}
+
+@media screen and (max-width: 578px) {
+    .weather-form {
+        padding-left: 20px;
+        align-items: center;
+    }
+    .form-group {
+        margin: 0;
+    }
+}
