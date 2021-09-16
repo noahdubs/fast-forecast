@@ -59,7 +59,7 @@ const SignUp = () => {
                     value={info.email}
                     onChange={handleChange}
                     label='Email'
-                    type="login-form-input"
+                    classes="login-form-input"
                     placeholder="Email"
                     required
                 />
@@ -69,7 +69,7 @@ const SignUp = () => {
                     value={info.displayName}
                     onChange={handleChange}
                     label='Name'
-                    type="login-form-input"
+                    classes="login-form-input"
                     placeholder="Display Name"
                     required
                 />
@@ -89,7 +89,7 @@ const SignUp = () => {
                     value={info.confirmPassword}
                     onChange={handleChange}
                     label='Confirm Password'
-                    type="login-form-input"
+                    classes="login-form-input"
                     placeholder="Confirm Password"
                     required
                 />

@@ -8,6 +8,7 @@ import HomePage from './pages/homepage/homepage.component'
 import Weather from './pages/weather/weather.component'
 import WeatherSearch from './pages/weather-search/weather-search.component'
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
+import NotFound from './pages/not-found/not-found.component'
 
 const App = props => {
 
@@ -76,8 +77,9 @@ const App = props => {
 
 	 				<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
 
-
 	              	<Route exact path='/signin' render={() => currentUser ? (<Redirect to="/"/>) : (<SignInAndSignUp />)} />
+					<Route path="/404" component={NotFound} />
+                	<Redirect to="/404" />
 	 			</Switch>
 	 		</div>
 	)

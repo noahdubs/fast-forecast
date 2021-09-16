@@ -1,6 +1,6 @@
 import React from 'react'
 import './form-input.styles.css'
 
-export const FormInput = ({ label, handleChange, type, ...otherProps }) => (
-        <input className={`form-input ${type ? type : ''}`} onChange={handleChange} {...otherProps} />
+export const FormInput = ({ label, handleChange, classes, ...otherProps }) => (
+        <input className={`form-input ${classes ? classes : ''}`} onChange={handleChange} {...otherProps} />
 )

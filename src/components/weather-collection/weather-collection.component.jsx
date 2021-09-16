@@ -5,6 +5,7 @@ import DailyWeather from '../daily-weather/daily-weather.component'
 import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
 import { getHourlyWeather } from '../../scripts/get-weather'
+import {Loading} from '../loading/loading.component'
 
 import './weather-collection.styles.css'
 
@@ -83,7 +84,7 @@ const WeatherCollection = ({lat, lon}) => {
         )
     } else {
         return (
-            <div>Loading</div>
+            <Loading />
         )
     }
     

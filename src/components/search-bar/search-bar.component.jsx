@@ -6,7 +6,6 @@ import { loopOverText, getState, getCountry, getCity } from '../../scripts/loop-
 
 const SearchBar = props => {
     const [search, setSearch] = useState({text: ''})
-    const [hexs, setHexs] = useState(false)
 
     const apiKey = 'b504e77f4158753c73047b49554c803f'
 
@@ -51,14 +50,13 @@ const SearchBar = props => {
                 console.log(coords)
                 const hexLat = coords[0].lat
                 const hexLon = coords[0].lon
-                setHexs({
-                    hexLat: hexLat,
-                    hexLon: hexLon
-                })
 
                 window.location.href = `/weather/${hexLat}/${hexLon}`
             })
-            .catch(err => console.log("error", err))
+            .catch(err => {
+                alert(`City not found, please use "CityName, State or CountryCode" format`)
+                setSearch({text: ''})
+        })
     }
 
     return (
@@ -69,7 +67,7 @@ const SearchBar = props => {
                     type="search"
                     onChange={handleChange}
                     value={search.text}
-                    type={props.for}
+                    classes={props.for}
                     placeholder={'Search City'}
                     required
                 />
@@ -79,7 +77,6 @@ const SearchBar = props => {
             </div>
         </form>
     )
-    
 }
 
 export default SearchBar 
