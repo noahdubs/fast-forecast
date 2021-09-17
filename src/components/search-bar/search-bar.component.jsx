@@ -51,7 +51,7 @@ const SearchBar = props => {
                 const hexLat = coords[0].lat
                 const hexLon = coords[0].lon
 
-                window.location.href = `/weather/${hexLat}/${hexLon}`
+                window.location.href = `/fast-forecast/weather/${hexLat}/${hexLon}`
             })
             .catch(err => {
                 alert(`City not found, please use "CityName, State or CountryCode" format`)
