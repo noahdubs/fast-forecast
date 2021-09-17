@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { getTime } from './get-time'
+import { nightOrDay } from './get-night-or-day'
 
 import partlyCloudy from '../assets/partly-cloudy.png'
 import smallPartlyCloudy from '../assets/small-partly-cloudy.png'
@@ -34,7 +35,7 @@ import smallTornado from '../assets/small-tornado.png'
 import dayMoon from '../assets/day-moon.png'
 
 export const getDailyImg = weatherId => {
-    let currentImg
+    let currentImg = false 
     if(weatherId === 800) {
         currentImg = smallSunny
     }
@@ -67,29 +68,17 @@ export const getDailyImg = weatherId => {
     )
 }
 
-export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId) => {
+export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId, timeZone) => {
     const {dt, weather} = hour
     let currentImg
     const hourlyWeatherId = weather[0].id 
 
-    let time = getTime(dt)
-    if(time.dayOfWeekId !== dayOfWeekId) {
-        sunset = sunset + (24*3600)
-        sunrise = sunrise + (24*3600)
-    }
-
+    let darkOut = nightOrDay(dt, timeZone, sunrise, sunset)
     
-    if((dt >= sunset || dt < sunrise) && !nightTime) {
-        currentImg = dayMoon
-    } else if(dt >= sunset || dt < sunrise) {
-        currentImg = smallMoon 
-    } else {
-        currentImg = smallSunny
-    }
     if (hourlyWeatherId > 800 && hourlyWeatherId < 803) {
         currentImg = smallPartlyCloudy
     } 
-     if (hourlyWeatherId > 803 && hourlyWeatherId < 804) {
+    if (hourlyWeatherId > 803 && hourlyWeatherId < 804) {
         currentImg = smallCloudy
     }
     if (hourlyWeatherId > 209 && hourlyWeatherId < 222) {
@@ -111,19 +100,26 @@ export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId) => {
         currentImg = smallTornado 
     }
 
+    if(darkOut && !nightTime) {
+        currentImg = dayMoon
+    } else if(darkOut) {
+        currentImg = smallMoon 
+    } else if(!currentImg){
+        currentImg = smallSunny
+    }
+
     return (
         <img src={currentImg} />
     )
 }
 
-export const getMainImg = ({dt, sunset, sunrise, currentWeatherId})  => {
-    let currentImg
+export const getMainImg = (current, timeZone)  => {
+    let currentImg = false 
 
-    if(dt >= sunset || dt < sunrise){
-        currentImg = moon 
-    } else {
-        currentImg = sunny
-    }
+    const {dt, sunset, sunrise, currentWeatherId} = current 
+
+    let darkOut = nightOrDay(dt, timeZone, sunrise, sunset)
+
     if (currentWeatherId > 800 && currentWeatherId < 803) {
         currentImg = partlyCloudy
     } 
@@ -148,6 +144,12 @@ export const getMainImg = ({dt, sunset, sunrise, currentWeatherId})  => {
     if(currentWeatherId === 781) {
         currentImg = tornado 
     }
+    if(darkOut) {
+        currentImg = moon 
+    } else if(!currentImg) {
+        currentImg = sunny
+    }
+
     return (
        currentImg
     )

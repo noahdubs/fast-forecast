@@ -6,6 +6,7 @@ import HourlyWeather from '../hourly-weather/hourly-weather.component'
 
 import { getHourlyWeather } from '../../scripts/get-weather'
 import {Loading} from '../loading/loading.component'
+import {nightOrDay} from '../../scripts/get-night-or-day'
 
 import './weather-collection.styles.css'
 
@@ -30,8 +31,8 @@ const WeatherCollection = ({lat, lon}) => {
     }, [])
 
     const getTheme = () => {
-        const {current} = weather 
-        if(current.dt >= current.sunset || current.dt < current.sunrise) {
+        const nightTime = nightOrDay(weather.current.dt, weather.timezone, weather.current.sunrise, weather.current.sunset) 
+        if(nightTime) {
             return {
                 collectionClass: 'collection-nightime',
                 nightTime: true 
@@ -68,12 +69,14 @@ const WeatherCollection = ({lat, lon}) => {
                             sunrise={sunrise}
                             sunset={sunset}
                             dayOfWeekId={weather.hourly[0].time.dayOfWeekId}
+                            timeZone={weather.timezone}
                         />
                     </div>
                     <div className="col-lg-4 daily-col">
                         <DailyWeather
                             daily={weather.daily.slice(1, 8)}
                             nightTime={theme.nightTime}
+                            timeZone={weather.timezone}
                         />
                     </div>
                     
