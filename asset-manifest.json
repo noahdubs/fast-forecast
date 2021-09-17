@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fast-forecast/static/css/main.a2b74adb.chunk.css",
-    "main.js": "/fast-forecast/static/js/main.52d4adf4.chunk.js",
-    "main.js.map": "/fast-forecast/static/js/main.52d4adf4.chunk.js.map",
+    "main.js": "/fast-forecast/static/js/main.1b30e259.chunk.js",
+    "main.js.map": "/fast-forecast/static/js/main.1b30e259.chunk.js.map",
     "runtime-main.js": "/fast-forecast/static/js/runtime-main.6b205d1e.js",
     "runtime-main.js.map": "/fast-forecast/static/js/runtime-main.6b205d1e.js.map",
-    "static/js/2.66048f84.chunk.js": "/fast-forecast/static/js/2.66048f84.chunk.js",
-    "static/js/2.66048f84.chunk.js.map": "/fast-forecast/static/js/2.66048f84.chunk.js.map",
+    "static/js/2.ae0b99ca.chunk.js": "/fast-forecast/static/js/2.ae0b99ca.chunk.js",
+    "static/js/2.ae0b99ca.chunk.js.map": "/fast-forecast/static/js/2.ae0b99ca.chunk.js.map",
     "index.html": "/fast-forecast/index.html",
     "static/css/main.a2b74adb.chunk.css.map": "/fast-forecast/static/css/main.a2b74adb.chunk.css.map",
-    "static/js/2.66048f84.chunk.js.LICENSE.txt": "/fast-forecast/static/js/2.66048f84.chunk.js.LICENSE.txt",
+    "static/js/2.ae0b99ca.chunk.js.LICENSE.txt": "/fast-forecast/static/js/2.ae0b99ca.chunk.js.LICENSE.txt",
     "static/media/logo1.c3c6edc6.png": "/fast-forecast/static/media/logo1.c3c6edc6.png",
     "static/media/logo2.c9fe303c.png": "/fast-forecast/static/media/logo2.c9fe303c.png",
     "static/media/mobile-logo.3e9019b3.png": "/fast-forecast/static/media/mobile-logo.3e9019b3.png",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6b205d1e.js",
-    "static/js/2.66048f84.chunk.js",
+    "static/js/2.ae0b99ca.chunk.js",
     "static/css/main.a2b74adb.chunk.css",
-    "static/js/main.52d4adf4.chunk.js"
+    "static/js/main.1b30e259.chunk.js"
   ]
 }
