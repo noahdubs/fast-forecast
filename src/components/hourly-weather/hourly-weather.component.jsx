@@ -5,8 +5,6 @@ import './hourly-weather.styles.css'
 import { getImg } from '../../scripts/get-img'
 
 const HourlyWeather = ({hourly, nightTime, sunrise, sunset, dayOfWeekId}) => {
-    console.log(hourly) 
-
     return (
         <div className={`hourly-weather ${nightTime ? 'hourly-night' : 'hourly-day'}`} >
             <div className="hourly-scroll" id="hourly-scroll">

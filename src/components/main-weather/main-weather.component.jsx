@@ -10,10 +10,8 @@ import { getMainImg } from '../../scripts/get-img'
 import './main-weather.styles.css'
 
 
-const MainWeather = ({ location, current }) => {
-    console.log(current)
-    const {hours, minutes, timeOfDay} = getTime(current.dt)
-    console.log(hours)
+const MainWeather = ({ location, current, timeZone }) => {
+    const {hours, minutes, timeOfDay} = getTime(current.dt, timeZone)
     const currentWeatherId = current.weather[0].id
     current.currentWeatherId = currentWeatherId 
     const currentWeather = weatherIds[currentWeatherId]

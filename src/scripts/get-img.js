@@ -34,7 +34,6 @@ import smallTornado from '../assets/small-tornado.png'
 import dayMoon from '../assets/day-moon.png'
 
 export const getDailyImg = weatherId => {
-    console.log(weatherId)
     let currentImg
     if(weatherId === 800) {
         currentImg = smallSunny

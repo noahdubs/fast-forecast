@@ -53,19 +53,6 @@ const App = props => {
 		}
 	}, [])
 
-	console.log(coords)
-
-	// return (
-	// 	<div className="app">
-	// 		<Switch>
-	// 			<Route exact path="/" component={HomePage} />
-	// 			<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
-	// 			<Route exact path='/signin' component={SignInAndSignUp} />
-	// 		</Switch>
-	// 	</div>
-		
-	// )
-
 	return (
 		<div className="app">
 	 			<Switch>

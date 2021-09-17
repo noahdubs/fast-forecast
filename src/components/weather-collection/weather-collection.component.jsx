@@ -23,13 +23,11 @@ const WeatherCollection = ({lat, lon}) => {
                 fetch(weatherUrl).then(res => res.json()),
                 fetch(locationUrl).then(res => res.json())
             ]).then(([weatherData, locationData]) => {
-                console.log(locationData)
+                console.log(weatherData, locationData)
                 const getWeather = getHourlyWeather(weatherData, locationData)
-                console.log(getWeather)
                 setWeather(getWeather)
             })
     }, [])
-    console.log(weather)
 
     const getTheme = () => {
         const {current} = weather 
@@ -62,6 +60,7 @@ const WeatherCollection = ({lat, lon}) => {
                             location={weather.location}
                             current={weather.current}
                             nightTime={theme.nightTime}
+                            timeZone={weather.timezone}
                         />
                         <HourlyWeather 
                             hourly={weather.hourly}

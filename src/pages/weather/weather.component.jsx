@@ -7,7 +7,6 @@ import WeatherCollection from '../../components/weather-collection/weather-colle
 import Footer from '../../components/footer/footer.component'
 
 const Weather = ({lat, lon}) => {   
-    console.log(lat, lon) 
     return (
         <div className="weather">
             <Navbar />
