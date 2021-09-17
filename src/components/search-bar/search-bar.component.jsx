@@ -44,7 +44,7 @@ const SearchBar = props => {
 
         console.log(cityName, stateCode, countryCode)
 
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=1&appid=${apiKey}`)
+        fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=1&appid=${apiKey}`)
             .then(res => res.json())
             .then(coords => {
                 console.log(coords)
