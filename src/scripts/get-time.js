@@ -38,11 +38,13 @@ export const getTime = (timestamp, timeZone) => {
     let timeOfDay 
     let foundHours = false 
     let foundTimeOfDay = false 
+    let timezoneStr = ''
     if(formattedDate.includes(":00:00")){
         let timeArr = dateArr[1].split(":00:00 ")
         hours = timeArr[0]
         const time = timeArr[1]
         timeOfDay = time.slice(0, 2).toLowerCase()
+        timezoneStr = time.slice(3, 6)
     } else {
         for(let i = 0; i < dateArr[1].length; i++){
             if(dateArr[1][i] !== ':' && !foundHours){
@@ -58,6 +60,10 @@ export const getTime = (timestamp, timeZone) => {
                     let dtStr = dateArr[1][i] + 'M'
                     timeOfDay = dtStr.toLowerCase()
                     foundTimeOfDay = true 
+                    let indx = i + 2
+                    let stop = dateArr[1].length
+                    timezoneStr = dateArr[1].slice(indx, stop)
+                    console.log(timezoneStr)
                 }
             }
         }
@@ -68,11 +74,14 @@ export const getTime = (timestamp, timeZone) => {
     if (minutes.length === 1) {
         minutes = '0' + minutes
     }
+
+    console.log(hours, minutes, timezoneStr)
     return {
         hours: hours,
         timeOfDay: timeOfDay,
         minutes: minutes,
         dayOfWeek: dayOfWeek,
-        dayOfWeekId: dayOfWeekId.getDay()
+        dayOfWeekId: dayOfWeekId.getDay(),
+        timeZoneStr: timezoneStr
     }
 }

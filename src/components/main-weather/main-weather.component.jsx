@@ -11,7 +11,7 @@ import './main-weather.styles.css'
 
 
 const MainWeather = ({ location, current, timeZone }) => {
-    const {hours, minutes, timeOfDay} = getTime(current.dt, timeZone)
+    const {hours, minutes, timeOfDay, timeZoneStr} = getTime(current.dt, timeZone)
     const currentWeatherId = current.weather[0].id
     current.currentWeatherId = currentWeatherId 
     const currentWeather = weatherIds[currentWeatherId]
@@ -19,15 +19,15 @@ const MainWeather = ({ location, current, timeZone }) => {
     return (
         <div className={`row main-weather ${ current.dt >= current.sunset || current.dt < current.sunrise ?  'night-weather' : 'day-weather'}`}>
             <div className="col-sm-5 location-temp">
-                <h3 className="city-name">{location.name}, {location.state ? location.state : location.country}</h3>
-                <p>As of {hours}:{minutes} {timeOfDay}</p>
+                <h3 className="city-name">{location.name}, {location.state ? location.state : location.country} </h3>
+                <p>As of {hours}:{minutes} {timeOfDay} {timeZoneStr}</p>
                 <p className="main-degrees">{Math.round(current.temp)}°</p>
                 <h4>{currentWeather}</h4>
 
             </div>
             <div className="col-sm-3 img-info">
                 <div className="img-div">
-                    <img src={getMainImg(current)} />
+                    <img src={getMainImg(current, timeZone)} />
                 </div>
                 <div className="main-weather-info">
                     <div>

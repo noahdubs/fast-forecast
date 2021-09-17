@@ -36,13 +36,13 @@ import dayMoon from '../assets/day-moon.png'
 
 export const getDailyImg = weatherId => {
     let currentImg = false 
-    if(weatherId === 800) {
+    if(weatherId === 800 || weatherId === 801) {
         currentImg = smallSunny
     }
-    if (weatherId > 800 && weatherId <= 803) {
+    if (weatherId >= 802 && weatherId <= 803) {
         currentImg = smallPartlyCloudy
     } 
-     if (weatherId > 803 && weatherId < 804) {
+     if (weatherId === 804) {
         currentImg = smallCloudy
     }
     if (weatherId > 209 && weatherId < 222) {
@@ -75,10 +75,10 @@ export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId, timeZone) 
 
     let darkOut = nightOrDay(dt, timeZone, sunrise, sunset)
     
-    if (hourlyWeatherId > 800 && hourlyWeatherId < 803) {
+    if (hourlyWeatherId >= 802 && hourlyWeatherId <= 803) {
         currentImg = smallPartlyCloudy
     } 
-    if (hourlyWeatherId > 803 && hourlyWeatherId < 804) {
+    if (hourlyWeatherId === 804 ) {
         currentImg = smallCloudy
     }
     if (hourlyWeatherId > 209 && hourlyWeatherId < 222) {
@@ -87,7 +87,7 @@ export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId, timeZone) 
     if (hourlyWeatherId > 199 && hourlyWeatherId < 233) {
         currentImg = smallThunderstorm
     }
-        if (hourlyWeatherId > 299 && hourlyWeatherId < 532 ) {
+    if (hourlyWeatherId > 299 && hourlyWeatherId < 532 ) {
         currentImg = smallRain 
     }
     if( hourlyWeatherId > 599 && hourlyWeatherId < 622) {
@@ -123,7 +123,7 @@ export const getMainImg = (current, timeZone)  => {
     if (currentWeatherId > 800 && currentWeatherId < 803) {
         currentImg = partlyCloudy
     } 
-     if (currentWeatherId > 803 && currentWeatherId < 804) {
+     if (currentWeatherId > 803 && currentWeatherId < 805) {
         currentImg = cloudy
     }
      if (currentWeatherId > 209 && currentWeatherId < 222) {

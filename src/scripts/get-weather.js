@@ -7,10 +7,7 @@ export const getHourlyWeather = (weatherData, locationData) => {
         state: locationObject.state 
     }
 
-    const timestampNow = ( Date.now() / 1000 )
     const timeZone = weatherData.timezone 
-    const {hours, timeOfDay, minutes} = getTime(timestampNow, timeZone)
-    console.log(hours, timeOfDay, minutes)
 
     const dayHourly = weatherData.hourly.slice(0,24)
     // start
@@ -24,6 +21,7 @@ export const getHourlyWeather = (weatherData, locationData) => {
     }
 
     weatherData.hourly = dayHourly
+
 
     return weatherData 
 }
