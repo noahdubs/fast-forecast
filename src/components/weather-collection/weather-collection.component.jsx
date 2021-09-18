@@ -26,6 +26,8 @@ const WeatherCollection = ({lat, lon}) => {
             ]).then(([weatherData, locationData]) => {
                 console.log(weatherData, locationData)
                 const getWeather = getHourlyWeather(weatherData, locationData)
+                const {location} = getWeather 
+                document.title = `Weather in ${location.name}, ${location.state ? location.state : location.country} `
                 setWeather(getWeather)
             })
     }, [])
@@ -55,6 +57,9 @@ const WeatherCollection = ({lat, lon}) => {
         ]).then(([weatherData, locationData]) => {
             console.log(weatherData, locationData)
             const getWeather = getHourlyWeather(weatherData, locationData)
+            const {location} = getWeather 
+            document.title = `Weather in ${location.name}, ${location.state ? location.state : location.country} `
+            document.getElementById('hourly-scroll').scroll({left:0,behavior:'auto'})
             setWeather(getWeather)
         })
     }, [lat])

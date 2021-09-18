@@ -70,7 +70,6 @@ const App = props => {
 	 			</Switch>
 	 		</div>
 	)
-	
 }
 
 const mapStateToProps = ({ user }) => ({

@@ -7,15 +7,18 @@ import Footer from '../../components/footer/footer.component'
 
 import './sign-in-and-sign-up.styles.css'
 
-const SignInAndSignUp = () => (
-    <div className="sign-in-and-sign-up">
-        <Navbar />
-        <div className="row sign-in-row">
-            <SignIn />
-            <SignUp />
+const SignInAndSignUp = () => { 
+    document.title = 'Sign In or Sign Up - Fast Forecast'
+    return (
+        <div className="sign-in-and-sign-up">
+            <Navbar />
+            <div className="row sign-in-row">
+                <SignIn />
+                <SignUp />
+            </div>
+            <Footer />
         </div>
-        <Footer />
-    </div>
-)
+    )
+}
 
 export default SignInAndSignUp

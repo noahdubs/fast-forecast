@@ -8,7 +8,6 @@ import { getDailyImg } from '../../scripts/get-img'
 import raindrop from '../../assets/raindrop.png'
 
 const DailyWeather = ({daily, nightTime, timeZone}) => {
-    console.log(daily)
     return (
         <div className={ `daily-weather${nightTime ? ' daily-nightime' : ' daily-daytime'}`} >
             <div className="col-md-12 daily-col">
