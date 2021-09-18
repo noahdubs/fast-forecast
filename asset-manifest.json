@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fast-forecast/static/css/main.1d3b9795.chunk.css",
+    "main.css": "/fast-forecast/static/css/main.7ae58ced.chunk.css",
     "main.js": "/fast-forecast/static/js/main.21d1a2fa.chunk.js",
     "main.js.map": "/fast-forecast/static/js/main.21d1a2fa.chunk.js.map",
     "runtime-main.js": "/fast-forecast/static/js/runtime-main.6b205d1e.js",
@@ -8,7 +8,7 @@
     "static/js/2.f50ef65e.chunk.js": "/fast-forecast/static/js/2.f50ef65e.chunk.js",
     "static/js/2.f50ef65e.chunk.js.map": "/fast-forecast/static/js/2.f50ef65e.chunk.js.map",
     "index.html": "/fast-forecast/index.html",
-    "static/css/main.1d3b9795.chunk.css.map": "/fast-forecast/static/css/main.1d3b9795.chunk.css.map",
+    "static/css/main.7ae58ced.chunk.css.map": "/fast-forecast/static/css/main.7ae58ced.chunk.css.map",
     "static/js/2.f50ef65e.chunk.js.LICENSE.txt": "/fast-forecast/static/js/2.f50ef65e.chunk.js.LICENSE.txt",
     "static/media/logo1.c3c6edc6.png": "/fast-forecast/static/media/logo1.c3c6edc6.png",
     "static/media/logo2.c9fe303c.png": "/fast-forecast/static/media/logo2.c9fe303c.png",
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.6b205d1e.js",
     "static/js/2.f50ef65e.chunk.js",
-    "static/css/main.1d3b9795.chunk.css",
+    "static/css/main.7ae58ced.chunk.css",
     "static/js/main.21d1a2fa.chunk.js"
   ]
 }
