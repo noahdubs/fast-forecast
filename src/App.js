@@ -62,7 +62,7 @@ const App = props => {
 					/>
 
 
-	 				<Route exact path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
+	 				<Route path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 
 
 	              	<Route exact path='/signin' render={() => currentUser ? (<Redirect to="/"/>) : (<SignInAndSignUp />)} />
 					<Route path="/404" component={NotFound} />

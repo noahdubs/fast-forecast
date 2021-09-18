@@ -8,11 +8,15 @@ import Footer from '../../components/footer/footer.component'
 
 
 const WeatherSearch = props => {
+    console.log(props)
     const {hexLat, hexLon} = props.match.params 
 
     return (
         <div className="weather-search">
-            <Navbar />
+            <Navbar 
+                lat={hexLat}
+                lon={hexLon}
+            />
             <WeatherCollection 
                 lat={hexLat}
                 lon={hexLon}

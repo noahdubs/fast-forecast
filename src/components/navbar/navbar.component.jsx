@@ -10,7 +10,7 @@ import logo1 from '../../assets/logo1.png'
 import logo2 from '../../assets/logo2.png'
 import mobileLogo from '../../assets/mobile-logo.png'
 
-const Navbar = ({page, currentUser}) => {
+const Navbar = ({page, currentUser, lat, lon}) => {
 
     return (
         <div className={`custom-navbar ${page ? 'home-navbar' : 'weather-navbar'}`}>
@@ -22,7 +22,7 @@ const Navbar = ({page, currentUser}) => {
                 </div>
                 <div className="nav-info nav-half">
                     {page ? <span></span>
-                    : <SearchBar for="weather-nav" />}
+                    : <SearchBar for="weather-nav" lat={lat} lon={lon} />}
                     {currentUser ? 
                         <i title="Sign Out" onClick={() => auth.signOut()} className="fas fa-sign-out-alt sign-in-out-icon"></i>
                         : <Link to="/signin"><i title="Sign In" className="fas fa-sign-in-alt sign-in-out-icon"></i></Link>

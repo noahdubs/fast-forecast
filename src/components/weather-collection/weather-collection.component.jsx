@@ -44,6 +44,20 @@ const WeatherCollection = ({lat, lon}) => {
             }
         }
     } 
+
+    useEffect(() => {
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=minutely&appid=${apiKey}`
+        const locationUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`
+
+        Promise.all([
+            fetch(weatherUrl).then(res => res.json()),
+            fetch(locationUrl).then(res => res.json())
+        ]).then(([weatherData, locationData]) => {
+            console.log(weatherData, locationData)
+            const getWeather = getHourlyWeather(weatherData, locationData)
+            setWeather(getWeather)
+        })
+    }, [lat])
     
 
     if(weather) {
