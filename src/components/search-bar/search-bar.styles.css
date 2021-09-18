@@ -24,4 +24,7 @@
     .form-group {
         margin: 0;
     }
+    .search-button {
+        display: none;
+    }
 }
