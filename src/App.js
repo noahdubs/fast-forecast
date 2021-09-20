@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
@@ -15,9 +15,9 @@ const App = props => {
 	const {setCurrentUser, currentUser} = props 
 	const [coords, setCoords] = useState()
 
-	let unsubscribeFromAuth = null 
-
-	
+	const [unSub, setUnsub] = useState({
+		unsubscribeFromAuth: null 
+	})
 
 	// mounting hook
 	useEffect(() => {
@@ -30,7 +30,7 @@ const App = props => {
 			}
 		)
 	
-		unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+		let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 			if(userAuth) {
 				const userRef = await createUserProfileDocument(userAuth)
 
@@ -43,12 +43,15 @@ const App = props => {
 			}
 			setCurrentUser(userAuth)
 		})
+
+		setUnsub({unsubscribeFromAuth: unsubscribeFromAuth})
+
 	}, [])
 
 	// unmounting hook
 	useEffect(() => {
 		return () => {
-			unsubscribeFromAuth()
+			unSub.unsubscribeFromAuth()
 			console.log("unsubbed")
 		}
 	}, [])
@@ -60,6 +63,7 @@ const App = props => {
 					 	(<Weather {...props} lat={coords.lat} lon={coords.lon} />)
 						: (<HomePage />)} 
 					/>
+					<Route exact path="/home" component={HomePage} />
 
 
 	 				<Route path="/weather/:hexLat/:hexLon" component={WeatherSearch} /> 

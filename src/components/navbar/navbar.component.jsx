@@ -16,9 +16,9 @@ const Navbar = ({page, currentUser, lat, lon}) => {
         <div className={`custom-navbar ${page ? 'home-navbar' : 'weather-navbar'}`}>
             <nav className={`navbar nav-custom mobile-nav`}>
                 <div className="nav-logo nav-half">
-                    <img id="logo1" src={logo1} />
-                    <img id="logo2" src={logo2} />
-                    <img id="mobile-logo" src={mobileLogo} />
+                    <img id="logo1" src={logo1} alt="Logo" />
+                    <img id="logo2" src={logo2} alt="Logo" />
+                    <img id="mobile-logo" src={mobileLogo} alt="Logo" />
                 </div>
                 <div className="nav-info nav-half">
                     {page ? <span></span>

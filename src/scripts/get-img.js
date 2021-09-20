@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { getTime } from './get-time'
 import { nightOrDay } from './get-night-or-day'
 
 import partlyCloudy from '../assets/partly-cloudy.png'
@@ -64,7 +63,7 @@ export const getDailyImg = weatherId => {
         currentImg = smallTornado 
     }
     return (
-        <img className="daily-img" src={currentImg} />
+        <img className="daily-img" src={currentImg} alt="Daily Weather" />
     )
 }
 
@@ -109,7 +108,7 @@ export const getImg = (hour, sunset, sunrise, nightTime, dayOfWeekId, timeZone) 
     }
 
     return (
-        <img src={currentImg} />
+        <img src={currentImg} alt="Hourly Weather" />
     )
 }
 

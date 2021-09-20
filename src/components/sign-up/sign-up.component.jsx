@@ -79,7 +79,7 @@ const SignUp = () => {
                     value={info.password}
                     onChange={handleChange}
                     label='Password'
-                    type="login-form-input"
+                    classes="login-form-input"
                     placeholder="Password"
                     required
                 />

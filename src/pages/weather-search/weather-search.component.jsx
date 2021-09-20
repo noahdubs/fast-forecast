@@ -8,7 +8,6 @@ import Footer from '../../components/footer/footer.component'
 
 
 const WeatherSearch = props => {
-    console.log(props)
     const {hexLat, hexLon} = props.match.params 
 
     return (

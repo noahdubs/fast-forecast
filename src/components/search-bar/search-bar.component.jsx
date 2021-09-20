@@ -44,12 +44,10 @@ const SearchBar = props => {
 
         const cityName = getCity(words)
 
-        console.log(cityName, stateCode, countryCode)
 
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${stateCode},${countryCode}&limit=1&appid=${apiKey}`)
             .then(res => res.json())
             .then(coords => {
-                console.log(coords)
                 const hexLat = coords[0].lat
                 const hexLon = coords[0].lon
                 setCoords({

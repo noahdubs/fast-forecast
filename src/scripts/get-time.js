@@ -17,7 +17,6 @@ export const getDayOfWeek = (text, timeZone) => {
     } else {
         const dt = new Date(text * 1000)
         const dateNow = new Intl.DateTimeFormat('en-us', {dateStyle: 'full', timeStyle: 'long', timeZone: timeZone}).format(dt)
-        console.log(dateNow)
         for(let i = 0; i < days.length; i++){
             if(dateNow.includes(days[i])){
                 return days[i]
@@ -56,14 +55,13 @@ export const getTime = (timestamp, timeZone) => {
                 
             } else {
                 foundHours = true 
-                if(dateArr[1][i] === "A" || dateArr[1][i] === "P" && !foundTimeOfDay) {
+                if((dateArr[1][i] === "A" || dateArr[1][i] === "P") && !foundTimeOfDay) {
                     let dtStr = dateArr[1][i] + 'M'
                     timeOfDay = dtStr.toLowerCase()
                     foundTimeOfDay = true 
                     let indx = i + 2
                     let stop = dateArr[1].length
                     timezoneStr = dateArr[1].slice(indx, stop)
-                    console.log(timezoneStr)
                 }
             }
         }
@@ -75,7 +73,6 @@ export const getTime = (timestamp, timeZone) => {
         minutes = '0' + minutes
     }
 
-    console.log(hours, minutes, timezoneStr)
     return {
         hours: hours,
         timeOfDay: timeOfDay,

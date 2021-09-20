@@ -5,10 +5,6 @@
     left: 0px;
     left: 0px;
     z-index: 0;
-    /* background-image: url('../../assets/desert0.jpeg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
 }
 
 #animate-area{
@@ -23,6 +19,10 @@
 	animation: 10s linear 0s normal none infinite animate;
  
 }
+/* 500px - 10seconds
+   1000px - 5s
+
+*/
  
 @-webkit-keyframes animate {
 	from {background-position:0 0;}

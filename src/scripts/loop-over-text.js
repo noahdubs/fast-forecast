@@ -40,7 +40,7 @@ export const getCountry = words => {
     let i, j, string;
     let countryCode = false 
     for(i = 0; i < countries.length; i++) {
-        const {name, code} = countries[i]
+        const {code} = countries[i]
         let lowerCode = code.toLowerCase()
         for(j = 0; j < words.length; j++){
             if(words[j] === lowerCode){

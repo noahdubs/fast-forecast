@@ -24,7 +24,6 @@ const WeatherCollection = ({lat, lon}) => {
                 fetch(weatherUrl).then(res => res.json()),
                 fetch(locationUrl).then(res => res.json())
             ]).then(([weatherData, locationData]) => {
-                console.log(weatherData, locationData)
                 const getWeather = getHourlyWeather(weatherData, locationData)
                 const {location} = getWeather 
                 document.title = `Weather in ${location.name}, ${location.state ? location.state : location.country} `
@@ -55,7 +54,6 @@ const WeatherCollection = ({lat, lon}) => {
             fetch(weatherUrl).then(res => res.json()),
             fetch(locationUrl).then(res => res.json())
         ]).then(([weatherData, locationData]) => {
-            console.log(weatherData, locationData)
             const getWeather = getHourlyWeather(weatherData, locationData)
             const {location} = getWeather 
             document.title = `Weather in ${location.name}, ${location.state ? location.state : location.country} `
@@ -67,7 +65,6 @@ const WeatherCollection = ({lat, lon}) => {
 
     if(weather) {
         const theme = getTheme() 
-        console.log(theme)
         const sunrise = weather.current.sunrise 
         const sunset = weather.current.sunset 
 

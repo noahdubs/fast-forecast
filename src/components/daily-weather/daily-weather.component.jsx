@@ -12,7 +12,7 @@ const DailyWeather = ({daily, nightTime, timeZone}) => {
         <div className={ `daily-weather${nightTime ? ' daily-nightime' : ' daily-daytime'}`} >
             <div className="col-md-12 daily-col">
                 {daily.map(day => (
-                    <div className="day-of-week">
+                    <div className="day-of-week" key={daily.indexOf(day)}>
                         <div className="col-3 day-day">
                             <p>{getDayOfWeek(day.dt, timeZone)}</p>
                         </div>

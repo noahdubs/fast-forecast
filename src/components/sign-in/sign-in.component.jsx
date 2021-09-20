@@ -31,7 +31,6 @@ const SignIn = () => {
         } catch(error) {
             console.log(error)
         }
-        console.log(info)
         setInfo({email: '', password: ''})
     }   
 

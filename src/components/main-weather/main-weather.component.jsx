@@ -27,7 +27,7 @@ const MainWeather = ({ location, current, timeZone }) => {
             </div>
             <div className="col-sm-3 img-info">
                 <div className="img-div">
-                    <img src={getMainImg(current, timeZone)} />
+                    <img src={getMainImg(current, timeZone)} alt="Weather Now" />
                 </div>
                 <div className="main-weather-info">
                     <div>
