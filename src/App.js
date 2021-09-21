@@ -48,6 +48,10 @@ const App = props => {
 
 	}, [])
 
+	useEffect(() => {
+
+	}, [])
+
 	// unmounting hook
 	useEffect(() => {
 		return () => {

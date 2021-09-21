@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { Redirect } from 'react-router-dom'
+
 import { FormInput } from '../form-input/form-input.component'
 import CustomButton  from '../custom-button/custom-button.component'
 
@@ -13,7 +15,6 @@ const SignIn = () => {
         email: '',
         password: ''
     })
-
 
     const handleChange = event => {
         const { name, value } = event.target 
@@ -61,7 +62,7 @@ const SignIn = () => {
                     required
                 />
                 <CustomButton type="submit"> Sign in </CustomButton>
-                <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google <i className="fab fa-google google-icon"></i></CustomButton>
+                <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google <i className="fab fa-google google-icon"></i></CustomButton>
             </form>
         </div>
         

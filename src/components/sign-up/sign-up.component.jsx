@@ -44,7 +44,7 @@ const SignUp = () => {
                 confirmPassword: ''
             })
         } catch(error) {
-            console.log(error)
+            alert("This email is already in use")
         }
     }
 
