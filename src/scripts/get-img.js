@@ -119,10 +119,10 @@ export const getMainImg = (current, timeZone)  => {
 
     let darkOut = nightOrDay(dt, timeZone, sunrise, sunset)
 
-    if (currentWeatherId > 800 && currentWeatherId < 803) {
+    if (currentWeatherId >= 802 && currentWeatherId <= 803) {
         currentImg = partlyCloudy
     } 
-     if (currentWeatherId > 803 && currentWeatherId < 805) {
+     if (currentWeatherId === 804) {
         currentImg = cloudy
     }
      if (currentWeatherId > 209 && currentWeatherId < 222) {
